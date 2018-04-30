@@ -4,8 +4,10 @@ define(
 	 'core/theme-app', 
 	 'core/theme-tpl-tags', 
 	 'core/modules/storage', 
+	 'theme/photoswipe/photoswipe.min',
+        'theme/photoswipe/photoswipe-ui-default.min',
 	 'theme/js/bootstrap.min' 
-	 ], function( $, App, TemplateTags, Storage ) {
+	 ], function( $, App, TemplateTags, Storage, PhotoSwipe, PhotoSwipeUI_Default  ) {
 
 
 	 App.setParam( 'go-to-default-route-after-refresh', false ); // Don't automatically show default screen after a refresh	
@@ -13,6 +15,69 @@ define(
 	var $refresh_button = $( '#refresh-button' );
 
 	var current_search = { search_principal: '' , search_secundario:''  };
+	var photoswipe_element = $( '.pswp' )[0]; //Memorize PhotoSwipe gallery HTML layout element
+    var photoswipe_instance = null; //PhotoSwipe JS Object that we will instanciate         
+	var img_dragging = false;
+	
+         
+    /*     
+     * Opens the given image (or list of images) with PhotoSwipe
+     */
+    function open_with_photoswipe( $images, index ) {
+
+        index = index || 0;
+
+        var photoswipe_items = [];
+
+        //For each image, create the corresponding PhotoSwipe item by retrieving
+        //the full size information in data attributes set on server side:
+        $images.each( function() {
+            var $image = $( this );
+
+            //Retrieve image caption if any:
+            var $caption = $( this ).closest('.gallery-item, .wp-caption').find( '.wp-caption-text' );
+
+            //Add PhotoSwipe item corresponding to
+            photoswipe_items.push({
+                src: $image.data( 'full-img' ), //Data attribute that was added by modifying the webservice earlier
+                w: $image.data( 'width' ),
+                h: $image.data( 'height' ),
+                title: $caption.length ? $caption.text() : ''
+            });
+        } );
+
+        //Lots of PhotoSwipe options can be found here for customization:
+        //http://photoswipe.com/documentation/options.html
+        var photoswipe_options = {
+            index: index, //start gallery at the image we clicked on (used for image galleries)
+            shareEl: false //don't display Share element
+        };
+
+        //Open the given images with PhotoSwipe:
+        photoswipe_instance = new PhotoSwipe( photoswipe_element, PhotoSwipeUI_Default, photoswipe_items, photoswipe_options);
+        photoswipe_instance.init();
+    }     
+         
+         
+         
+     $( "#container" ).on( "touchstart", "#single-content img", function() {
+        img_dragging = false; //Reinit image dragging when starting to touch an image
+        });
+
+    $( "#container" ).on( "touchmove", "#single-content img", function() {
+        img_dragging = true; //Activate image dragging when starting to swipe on the image to make post content scroll
+    });
+         
+    $( "#container" ).on( "touchend", "#single-content img", function() {
+	    
+        if (img_dragging){
+            return;
+        }
+        
+        //Open PhotoSwipe for the image we just touched:
+	   open_with_photoswipe( $( this ) );
+    });
+
 
 	$('#container').on('click','#ag-corte',function(e){
     e.preventDefault();
