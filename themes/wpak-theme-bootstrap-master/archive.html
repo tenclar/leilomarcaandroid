@@ -1,0 +1,67 @@
+<div id="archive">
+<%
+if( TemplateTags.isTaxonomy('events_categories',['agenda'])) {
+           
+       
+      %>
+   <div class="btn-group btn-group-justified" role="group" aria-label="...">   	
+  		<a  id="agenda"         href="#"   class="btn btn-success">Todos</a>
+  		<a  id="ag-corte"          href="#"   class="btn btn-info">Corte</a>
+  		<a  id="ag-elite"          href="#"   class="btn btn-danger">Elite</a>  		 
+	</div>
+
+    <% }  if( TemplateTags.isTaxonomy('events_categories',['resultados'])) {  %>
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">   	
+  		<a  id="resultados"         href="#"   class="btn btn-success">Todos</a>
+  		<a  id="res-corte"          href="#"   class="btn btn-info">Corte</a>
+  		<a  id="res-elite"          href="#"   class="btn btn-danger">Elite</a>  		 
+	</div>
+ 
+  <%  }  %>
+
+	<ol class="breadcrumb">
+		<li><%= list_title %><% total > 0 ? print(' - ' + total) : print(' - No') %> 
+			<% total > 1 ? print('publicações') : '' %><% total === 1 ? print('publicação') : '' %>
+			
+		</li>
+	</ol>
+	
+	<% if(posts.length){ %>
+	
+		<ul class="media-list">
+		
+			<% _.each( posts, function( post ){ %>
+			
+				<li class="media"> 
+						
+					<% if( post.thumbnail.src && post.thumbnail.src.length ){ %>
+						<img class="media-object pull-left " border="1" style="width: 85px; height: 58px;" src="<%= post.thumbnail.src %>">
+					<% } %>						
+												
+					<div class="media-body">
+						<h4 class="media-heading">
+							<a href="<%= TemplateTags.getPostLink(post.id) %>" class="pull-left"><%= post.title %></a>&nbsp;
+							<!-- &nbsp;<small class="small"><%= TemplateTags.formatDate(post.date,'d/m/Y') %></small> -->
+						</h4>
+						<% if( post.nb_comments > 0 ){ %>
+							<span class="comments"><%= post.nb_comments %> comentários<% post.nb_comments > 1 ? print('s') : '' %></span><br/>
+						<% } %>
+
+						<div id="postexcerpt"> <%= post.excerpt %></div>
+
+					</div>
+					
+				</li>
+				
+			<% }); %>
+									
+		</ul>
+		
+		<% if( TemplateTags.displayGetMoreLink() ){ %>
+			<button type="button" class="get-more btn btn-default"> mais publicações (<%= TemplateTags.getMoreLinkNbLeft() %> ultimos)</button>
+		<% } %>
+		
+	<% }else{ %>
+		<p>publicações não encontradas!</p>
+	<% } %>
+</div>

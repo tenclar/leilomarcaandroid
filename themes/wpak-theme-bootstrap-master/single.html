@@ -1,0 +1,95 @@
+<div id="single" class="post-<%= post.id %>">
+	<h1><%= post.title %></h1>
+	<!-- <%= TemplateTags.formatDate(post.date,'d/m/Y') %> -->
+	<% if( post.nb_comments > 0 ){ %>
+                - <a class="comments" data-post-id="<%= post.id %>" href="#"><% print(post.nb_comments) %>&nbsp;comentários<% post.nb_comments > 1 ? print('s') : '' %></a>
+	<% } %>
+	<div id="single-content">
+		<% if(  post.thumbnail && post.thumbnail.src && post.thumbnail.src.length ){ %>
+			<img src="<%= post.thumbnail.src %>" />
+		<% } %>
+		<p><%= post.excerpt %></p>
+		<%= post.content %>
+	</div>
+
+	<%	if( post.table_resultados_macho ) { %>
+				<div	class="container" >
+				<h2 class="entry-title" style="margin: 1px 0; text-align: center "> Resultados Macho </h2>
+			    <table border="0" class="table table-striped"  style="margin-bottom: 50px;">
+
+			        <%if ( post.table_resultados_macho.header ) { %>
+
+			            <thead>
+				            <tr style="background-color: #395673; color:#fff;" >
+			                   <% _.each ( post.table_resultados_macho.header, function(th) { %>
+
+			                        <th>
+			                        <%= th.c %>
+			                        </th>
+			                    <% }); %>
+
+			                </tr>
+			            </thead>
+
+			        <% } %>
+
+			        <tbody>
+
+			            <% _.each( post.table_resultados_macho.body, function(tr) { %>
+			                
+			                <tr>
+
+			                  <%  _.each (tr, function(td) { %>
+                           		<td><%= td.c %></td>
+			                  <%  }); %>
+
+			                </tr>
+
+			            <% }); %>
+
+			        </tbody>
+			    </table>
+			    </div>			    
+		<%	} %>	
+
+			<%	if( post.table_resultados_femea ) { %>
+				<div	class="container" >
+				<h2 class="entry-title" style="margin: 1px 0; text-align: center; "> Resultados Fêmea </h2>
+			    <table border="0" class="table table-striped" style="margin-bottom: 50px;">
+
+			        <%if ( post.table_resultados_femea.header ) { %>
+
+			            <thead>
+				            <tr style="background-color: #395673; color:#fff;">
+			                   <% _.each ( post.table_resultados_femea.header, function(th) { %>
+
+			                        <th>
+			                        <%= th.c %>
+			                        </th>
+			                    <% }); %>
+
+			                </tr>
+			            </thead>
+
+			        <% } %>
+
+			        <tbody>
+
+			            <% _.each( post.table_resultados_femea.body, function(tr) { %>
+			                
+			                <tr>
+
+			                  <%  _.each (tr, function(td) { %>
+                           		<td><%= td.c %></td>
+			                  <%  }); %>
+
+			                </tr>
+
+			            <% }); %>
+
+			        </tbody>
+			    </table>
+			    </div>			    
+		<%	} %>	
+
+</div>

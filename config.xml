@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns       = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "lmr1212"
+        versionCode = "1.0"
+        version     = "1.0" >
+
+	<name>LeiloMarca</name>
+
+	<description>Leil&#227;o Rural da Regi&#227;o Norte</description>
+
+	<author href="http://www.leilomarca.com.br" email="leilomarcaweb@gmail.com">LeiloMarca</author>
+
+	<gap:platform name="android" />
+	
+	<!-- General preferences -->
+	<preference name="buildArchitecture" value="arm" />
+	<preference name="xwalkMultipleApk" value="true" />
+	<preference name="android-build-tool" value="gradle" />
+	<preference name="permissions" value="none"/>
+
+	<preference name="disallowOverscroll" value="true" />
+	<preference name="webviewbounce" value="false" />
+
+	<!-- PhoneGap plugin declaration -->
+	<plugin name="cordova-plugin-inappbrowser" source="npm" />
+	<plugin name="cordova-plugin-network-information" source="npm" />
+	<plugin name="cordova-plugin-whitelist" source="npm" />
+	<plugin name="cordova-plugin-splashscreen" source="npm" />
+	<plugin name="cordova-plugin-device" source="npm" />
+	<plugin name="cordova-plugin-statusbar" source="npm" />
+	<plugin name="cordova-plugin-crosswalk-webview" spec="2.3.0" source="npm" />
+	<plugin name="cordova-build-architecture" spec="https://github.com/MBuchalik/cordova-build-architecture.git#v1.0.1" source="git" />
+	<plugin name="cordova-plugin-customurlscheme" spec="4.2.0" >
+		<param name="URL_SCHEME" value="appleilomarca" />
+	</plugin>
+	<plugin name="pushwoosh-pgb-plugin" spec="6.5.3" source="npm" />
+	<plugin name="pushwoosh-cordova-plugin" source="npm" />
+
+	<!-- Whitelist policy  -->
+	<access origin="*" />
+	<allow-intent href="*" />
+	<allow-navigation href="*" />
+
+	<!-- SplashScreen configuration -->
+	<preference name="SplashScreen" value="splash" />
+	<preference name="SplashScreenDelay" value="10000" />
+	<preference name="FadeSplashScreenDuration" value="300" />
+	<preference name="ShowSplashScreenSpinner" value="false" />
+
+	<!-- Icons and Splashscreens declaration -->
+
+	<icon src="themes/wpak-theme-bootstrap-master/res/icon.png" gap:platform="android"/>
+	<icon src="themes/wpak-theme-bootstrap-master/res/icons/drawable-ldpi-icon.png" gap:platform="android" gap:qualifier="ldpi"/>
+	<icon src="themes/wpak-theme-bootstrap-master/res/icons/drawable-mdpi-icon.png" gap:platform="android" gap:qualifier="mdpi"/>
+	<icon src="themes/wpak-theme-bootstrap-master/res/icons/drawable-hdpi-icon.png" gap:platform="android" gap:qualifier="hdpi"/>
+	<icon src="themes/wpak-theme-bootstrap-master/res/icons/drawable-xhdpi-icon.png" gap:platform="android" gap:qualifier="xhdpi"/>
+	<icon src="themes/wpak-theme-bootstrap-master/res/icons/drawable-xxhdpi-icon.png" gap:platform="android" gap:qualifier="xxhdpi"/>
+	<icon src="themes/wpak-theme-bootstrap-master/res/icons/drawable-xxxhdpi-icon.png" gap:platform="android" gap:qualifier="xxxhdpi"/>
+	
+	<gap:splash src="themes/wpak-theme-bootstrap-master/res/splash.png" gap:platform="android"/>
+	<gap:splash src="themes/wpak-theme-bootstrap-master/res/splashscreens/drawable-port-ldpi-screen.png" gap:platform="android" gap:qualifier="ldpi"/>
+	<gap:splash src="themes/wpak-theme-bootstrap-master/res/splashscreens/drawable-port-mdpi-screen.png" gap:platform="android" gap:qualifier="mdpi"/>
+	<gap:splash src="themes/wpak-theme-bootstrap-master/res/splashscreens/drawable-port-hdpi-screen.png" gap:platform="android" gap:qualifier="hdpi"/>
+	<gap:splash src="themes/wpak-theme-bootstrap-master/res/splashscreens/drawable-port-xhdpi-screen.png" gap:platform="android" gap:qualifier="xhdpi"/>
+	<gap:splash src="themes/wpak-theme-bootstrap-master/res/splashscreens/drawable-port-xxhdpi-screen.png" gap:platform="android" gap:qualifier="xxhdpi"/>
+	<gap:splash src="themes/wpak-theme-bootstrap-master/res/splashscreens/drawable-port-xxxhdpi-screen.png" gap:platform="android" gap:qualifier="xxxhdpi"/>
+</widget>
