@@ -6,7 +6,7 @@
 	<% } %>
 	<div id="single-content">
 		<% if(  post.thumbnail && post.thumbnail.src && post.thumbnail.src.length ){ %>
-			<img src="<%= post.thumbnail.src %>" />
+			<img src="<%= post.thumbnail.src %>"  onerror="displayDefaultImage(this);"  />
 		<% } %>
 		<p><%= post.excerpt %></p>
 		<%= post.content %>

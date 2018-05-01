@@ -79,6 +79,18 @@ define(
     });
 
 
+	 /*
+     * @desc Display default image if an error occured when loading an image element (eg. offline)
+     * 1. Binding onerror event doesn't seem to work properly in functions.js
+     * 2. Binding is done directly on image elements
+     * 3. You can't use UnderscoreJS tags directly in WordPress content. So we have to attach an event to window.
+     * 4. Content image onerror handlers are set in prepare-content.php
+     * 5. Thumbnail event handlers are done in the templates archive.html and single.html
+     */
+    window.displayDefaultImage = function(o) {
+        $(o).attr('src',TemplateTags.getThemeAssetUrl('img/img-icon.svg'));
+    }
+
 	$('#container').on('click','#ag-corte',function(e){
     e.preventDefault();
     //Set search params from HTML form:
