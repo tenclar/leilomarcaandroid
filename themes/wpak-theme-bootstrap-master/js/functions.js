@@ -4,8 +4,9 @@ define(
 	 'core/theme-app', 
 	 'core/theme-tpl-tags', 
 	 'core/modules/storage', 
+	 'theme/js/cf7',
 	 'theme/photoswipe/photoswipe.min',
-        'theme/photoswipe/photoswipe-ui-default.min',
+     'theme/photoswipe/photoswipe-ui-default.min',
 	 'theme/js/bootstrap.min' 
 	 ], function( $, App, TemplateTags, Storage, PhotoSwipe, PhotoSwipeUI_Default  ) {
 
@@ -19,6 +20,15 @@ define(
     var photoswipe_instance = null; //PhotoSwipe JS Object that we will instanciate         
 	var img_dragging = false;
 	
+	App.on( 'screen:showed', function( current_screen, view ) {
+		$( 'div.wpcf7 > form' ).each( function() {
+			var $form = $( this );
+			wpcf7.initForm( $form );
+			if ( wpcf7.cached ) {
+				wpcf7.refill( $form );
+			}
+		} );
+	} );
          
     /*     
      * Opens the given image (or list of images) with PhotoSwipe
