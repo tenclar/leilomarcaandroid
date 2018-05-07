@@ -20,15 +20,7 @@ define(
     var photoswipe_instance = null; //PhotoSwipe JS Object that we will instanciate         
 	var img_dragging = false;
 	
-	App.on( 'screen:showed', function( current_screen, view ) {
-		$( 'div.wpcf7 > form' ).each( function() {
-			var $form = $( this );
-			wpcf7.initForm( $form );
-			if ( wpcf7.cached ) {
-				wpcf7.refill( $form );
-			}
-		} );
-	} );
+	
          
     /*     
      * Opens the given image (or list of images) with PhotoSwipe
@@ -151,7 +143,7 @@ define(
 
 	});
 
-	$('#container').on('click','#agenda',function(e){
+	$('#app-layout').on('click','#agenda',function(e){
     e.preventDefault();
     //Set search params from HTML form:
     //current_search.search_string = $('#corte').val().trim();
@@ -228,7 +220,7 @@ define(
 
 	});
 
-	$('#container').on('click','#resultados',function(e){
+	$('#app-layout').on('click','#resultados',function(e){
     e.preventDefault();
     //Set search params from HTML form:
     //current_search.search_string = $('#corte').val().trim();
@@ -356,12 +348,9 @@ define(
 	/**
 	 * Open all links inside single content with the inAppBrowser
 	 */
-	$( '#container' ).on( 'click', '#linkaovivo a', function( e ) {
-		e.preventDefault();
-		
-		openWithInAppBrowser( 'https://www.youtube.com/embed/_W-AC-T7HuQ' );
-		//openWithInAppBrowser( 'https://www.youtube.com/channel/UCd68n27RpAW2MXXvAAS6Mvw/live' );
-
+	$( '#app-layout' ).on( 'click', '#linkaovivo a', function( e ) {
+		e.preventDefault();	
+		 openWithInAppBrowser( 'https://www.youtube.com/channel/UCd68n27RpAW2MXXvAAS6Mvw/live' );
 	} );
 
 	/**
@@ -399,9 +388,9 @@ define(
 		Storage.clear( 'scroll-pos' );
 		$refresh_button.removeClass( 'refreshing' );
 		if ( result.ok ) {
-			//$( '#feedback' ).removeClass( 'error' ).html( 'Conteudo atualizado com Sucesso!' ).slideDown();
+			$( '#feedback' ).removeClass( 'error' ).html( 'Conteudo atualizado com Sucesso!' ).slideDown();
 		} else {
-			//$( '#feedback' ).addClass( 'error' ).html( result.message ).slideDown();
+			$( '#feedback' ).addClass( 'error' ).html( result.message ).slideDown();
 		}
 	} );
 
@@ -409,14 +398,14 @@ define(
 	 * When an error occurs, display it in the feedback box
 	 */
 	App.on( 'error', function( error ) {
-		//$( '#feedback' ).addClass( 'error' ).html( error.message ).slideDown();
+		$( '#feedback' ).addClass( 'error' ).html( error.message ).slideDown();
 	} );
 
 	/**
 	 * Hide the feedback box when clicking anywhere in the body
 	 */
 	$( 'body' ).click( function( e ) {
-		//$( '#feedback' ).slideUp();
+		$( '#feedback' ).slideUp();
 	} );
 
 	/**
@@ -425,7 +414,7 @@ define(
 	var $back_button = $( '#go-back' );
 	
 	//Show/Hide back button (in place of refresh button) according to current screen:
-	App.on( 'screen:showed', function () {
+	App.on( 'screen:showed', function ( current_screen, view ) {
 		var display = App.getBackButtonDisplay();
 		if ( display === 'show' ) {
 			$refresh_button.hide();
@@ -434,7 +423,16 @@ define(
 			$back_button.hide();
 			$refresh_button.show();
 		}
-	} );
+		$( 'div.wpcf7 > form' ).each( function() {
+			var $form = $( this );
+			wpcf7.initForm( $form );
+			if ( wpcf7.cached ) {
+				wpcf7.refill( $form );
+			}
+		} );
+	});
+
+	
 
 	//Go to previous screen when clicking back button:
 	$back_button.click( function ( e ) {

@@ -3,8 +3,8 @@ define( function ( require ) {
 	"use strict";
 
 	return {
-		app_slug : 'leilomarca',
-		wp_ws_url : 'http://www.leilomarca.com.br/portal/wp-appkit-api/leilomarca',
+		app_slug : 'android',
+		wp_ws_url : 'http://www.leilomarca.com.br/portal/wp-appkit-api/android',
 		wp_url : 'http://www.leilomarca.com.br/portal',
 		theme : 'wpak-theme-bootstrap-master',
 		version : '1.0',

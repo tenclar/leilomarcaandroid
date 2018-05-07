@@ -60,8 +60,10 @@ if( TemplateTags.isTaxonomy('events_categories',['agenda'])) {
 		<% if( TemplateTags.displayGetMoreLink() ){ %>
 			<button type="button" class="get-more btn btn-default"> mais publicações (<%= TemplateTags.getMoreLinkNbLeft() %> ultimos)</button>
 		<% } %>
+	 
 		
 	<% }else{ %>
 		<p>publicações não encontradas!</p>
 	<% } %>
+	
 </div>
