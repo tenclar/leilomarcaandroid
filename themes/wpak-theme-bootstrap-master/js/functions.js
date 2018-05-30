@@ -3,10 +3,10 @@ define(
 	'jquery',
 	 'core/theme-app', 
 	 'core/theme-tpl-tags', 
-	 'core/modules/storage', 
-	 'theme/js/cf7',
+	 'core/modules/storage', 	 
 	 'theme/photoswipe/photoswipe.min',
-     'theme/photoswipe/photoswipe-ui-default.min',
+	 'theme/photoswipe/photoswipe-ui-default.min',
+	 'theme/js/cf7',
 	 'theme/js/bootstrap.min' 
 	 ], function( $, App, TemplateTags, Storage, PhotoSwipe, PhotoSwipeUI_Default  ) {
 
@@ -62,15 +62,15 @@ define(
          
          
          
-     $( "#container" ).on( "touchstart", "#single-content img", function() {
+     $( "#app-layout" ).on( "touchstart", "#single-content img", function() {
         img_dragging = false; //Reinit image dragging when starting to touch an image
         });
 
-    $( "#container" ).on( "touchmove", "#single-content img", function() {
+    $( "#app-layout" ).on( "touchmove", "#single-content img", function() {
         img_dragging = true; //Activate image dragging when starting to swipe on the image to make post content scroll
     });
          
-    $( "#container" ).on( "touchend", "#single-content img", function() {
+    $( "#app-layout" ).on( "touchend", "#single-content img", function() {
 	    
         if (img_dragging){
             return;
