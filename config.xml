@@ -23,6 +23,8 @@
 	<preference name="webviewbounce" value="false" />
 
 	<!-- PhoneGap plugin declaration -->
+	
+	<plugin name="android" spec="7.0.0" source="npm" />
 	<plugin name="cordova-plugin-inappbrowser" source="npm" />
 	<plugin name="cordova-plugin-network-information" source="npm" />
 	<plugin name="cordova-plugin-whitelist" source="npm" />
