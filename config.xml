@@ -11,8 +11,8 @@
 	<preference name="phonegap-version" value="cli-7.0.1" />
 
 	<gap:platform name="android" />
-	 <preference name="android-minSdkVersion" value="25" />
-	 <preference name="android-targetSdkVersion" value="27" />
+	 <preference name="android-minSdkVersion" value="21" />
+	 <preference name="android-targetSdkVersion" value="26" />
 	<!-- General preferences -->
 	<preference name="buildArchitecture" value="arm" />
 	<!-- <preference name="xwalkMultipleApk" value="true" />	 -->
@@ -26,24 +26,20 @@
 	<!-- PhoneGap plugin declaration -->
 	
 	<plugin name="cordova-android-support-gradle-release">
-     <variable name="ANDROID_SUPPORT_VERSION" value="27.0.0"/>
+     <variable name="ANDROID_SUPPORT_VERSION" value="26.0.0"/>
 	</plugin>
 	<plugin name="cordova-plugin-inappbrowser" source="npm" />
 	<plugin name="cordova-plugin-network-information" source="npm" />	
 	<plugin name="cordova-plugin-splashscreen" source="npm" />
 	<plugin name="cordova-plugin-device" source="npm" />
 	<plugin name="cordova-plugin-statusbar" source="npm" />
-	<!-- <plugin name="cordova-plugin-whitelist" source="npm" /> -->
-	<plugin name="cordova-plugin-crosswalk-webview" spec="2.3.0" source="npm" />
-	<!-- <plugin name="cordova-plugin-crosswalk-webview" source="npm" /> -->
-	<!-- <plugin name="cordova-plugin-crosswalk-webview" spec="https://github.com/crosswalk-project/cordova-plugin-crosswalk-webview.git" source="git" /> -->
-	
+	<plugin name="cordova-plugin-whitelist" source="npm" />
+	<plugin name="cordova-plugin-crosswalk-webview" spec="2.3.0" source="npm" />	
 	<plugin name="cordova-build-architecture" spec="https://github.com/MBuchalik/cordova-build-architecture.git#v1.0.1" source="git" />
-	<!-- <plugin name="cordova-plugin-customurlscheme" spec="4.2.0" > -->
-	<plugin name="cordova-plugin-customurlscheme"  >
+	<plugin name="cordova-plugin-customurlscheme" spec="4.2.0" >	
 		<param name="URL_SCHEME" value="appleilomarca" />
 	</plugin>
-	<!-- <plugin name="pushwoosh-pgb-plugin" spec="6.5.3" source="npm" /> -->
+	<plugin name="pushwoosh-pgb-plugin" spec="6.5.3" source="npm" />
 	<plugin name="pushwoosh-pgb-plugin"  source="npm" />
 	<plugin name="pushwoosh-cordova-plugin" source="npm" />
 
