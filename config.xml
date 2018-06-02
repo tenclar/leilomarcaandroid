@@ -34,8 +34,10 @@
 	<plugin name="cordova-plugin-device" source="npm" />
 	<plugin name="cordova-plugin-statusbar" source="npm" />
 	<plugin name="cordova-plugin-whitelist" source="npm" />
-	<plugin name="cordova-plugin-crosswalk-webview" source="npm" />	
+	<!-- <plugin name="cordova-plugin-crosswalk-webview" source="npm" />	 -->
 	<!-- <plugin name="cordova-plugin-crosswalk-webview" spec="2.4.0" source="npm" />	 -->
+	
+	<plugin name="cordova-plugin-second-webview" spec="https://github.com/walidowais/cordova-plugin-second-webview.git" source="git" />
 	<plugin name="cordova-build-architecture" spec="https://github.com/MBuchalik/cordova-build-architecture.git#v1.0.1" source="git" />
 	
 	<!-- <plugin name="cordova-plugin-customurlscheme" spec="4.2.0" >	 -->
