@@ -35,7 +35,7 @@
 	<!-- <plugin name="cordova-plugin-whitelist" source="npm" /> -->
 	<!-- <plugin name="cordova-plugin-crosswalk-webview" spec="2.3.0" source="npm" /> -->
 	<!-- <plugin name="cordova-plugin-crosswalk-webview" source="npm" /> -->
-	
+	<plugin name="cordova-plugin-crosswalk-webview" spec="https://github.com/crosswalk-project/cordova-plugin-crosswalk-webview.git#v2.4.0" source="git" />
 	
 	<plugin name="cordova-build-architecture" spec="https://github.com/MBuchalik/cordova-build-architecture.git#v1.0.1" source="git" />
 	<!-- <plugin name="cordova-plugin-customurlscheme" spec="4.2.0" > -->
