@@ -8,10 +8,10 @@
 	<name>Leilo Marca</name>
 	<description>Leil&#227;o Rural da Regi&#227;o Norte</description>
 	<author href="http://www.leilomarca.com.br" email="leilomarcaweb@gmail.com">LeiloMarca</author>
-	<!-- <preference name="phonegap-version" value="cli-7.0.1" /> -->
+	<preference name="phonegap-version" value="cli-7.0.1" />
 
 	<gap:platform name="android" />
-	 <preference name="android-minSdkVersion" value="21" />
+	 <preference name="android-minSdkVersion" value="26" />
 	 <preference name="android-targetSdkVersion" value="27" /> 
 	<!--  General preferences -->
 	<preference name="buildArchitecture" value="arm" />
@@ -34,10 +34,10 @@
 	<plugin name="cordova-plugin-device" source="npm" />
 	<plugin name="cordova-plugin-statusbar" source="npm" />
 	<plugin name="cordova-plugin-whitelist" source="npm" />
-	<!-- <plugin name="cordova-plugin-crosswalk-webview" source="npm" />	 -->
+	<plugin name="cordova-plugin-crosswalk-webview" source="npm" />	
 	<!-- <plugin name="cordova-plugin-crosswalk-webview" spec="2.4.0" source="npm" />	 -->
 	
-	<plugin name="cordova-plugin-second-webview" spec="https://github.com/walidowais/cordova-plugin-second-webview.git" source="git" />
+	<!-- <plugin name="cordova-plugin-second-webview" spec="https://github.com/walidowais/cordova-plugin-second-webview.git" source="git" /> -->
 	<plugin name="cordova-build-architecture" spec="https://github.com/MBuchalik/cordova-build-architecture.git#v1.0.1" source="git" />
 	
 	<!-- <plugin name="cordova-plugin-customurlscheme" spec="4.2.0" >	 -->
