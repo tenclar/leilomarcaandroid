@@ -36,7 +36,7 @@
 	<plugin name="cordova-plugin-customurlscheme" spec="4.2.0" >
 		<param name="URL_SCHEME" value="appleilomarca" />
 	</plugin>
-	<plugin name="pushwoosh-pgb-plugin" spec="6.5.3" source="npm" />
+	<plugin name="pushwoosh-pgb-plugin"  source="npm" />
 	<plugin name="pushwoosh-cordova-plugin" source="npm" />
 
 	<!-- Whitelist policy  -->
