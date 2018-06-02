@@ -16,7 +16,7 @@
 	 <preference name="android-targetSdkVersion" value="27" />
 	<!-- General preferences -->
 	<preference name="buildArchitecture" value="arm" />
-	<preference name="xwalkMultipleApk" value="true" />	
+	<!-- <preference name="xwalkMultipleApk" value="true" />	 -->
 	<preference name="android-build-tool" value="gradle" />
 	<preference name="permissions" value="none"/>
 
@@ -34,7 +34,7 @@
 	<plugin name="cordova-plugin-statusbar" source="npm" />
 	<!-- <plugin name="cordova-plugin-whitelist" source="npm" /> -->
 	<!-- <plugin name="cordova-plugin-crosswalk-webview" spec="2.3.0" source="npm" /> -->
-	<plugin name="cordova-plugin-crosswalk-webview" source="npm" />
+	<!-- <plugin name="cordova-plugin-crosswalk-webview" source="npm" /> -->
 	<!-- <plugin name="cordova-plugin-crosswalk-webview" spec="https://github.com/crosswalk-project/cordova-plugin-crosswalk-webview.git" source="git" /> -->
 	
 	<plugin name="cordova-build-architecture" spec="https://github.com/MBuchalik/cordova-build-architecture.git#v1.0.1" source="git" />
