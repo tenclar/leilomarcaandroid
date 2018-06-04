@@ -12,12 +12,10 @@
 
 	<gap:platform name="android" />
 	 
-	 <preference name="android-targetSdkVersion" value="26" /> 
+	 <!-- <preference name="android-targetSdkVersion" value="26" />  -->
 	 <!-- <preference name="android-compileSdkVersion" value="26" />  -->
 	 
-	 <config-file platform="android" parent="/manifest">
-    <uses-sdk tools:overrideLibrary="org.apache.cordova,com.library.plugin" />
-	</config-file>
+	
 	<!--  General preferences -->
 	<preference name="buildArchitecture" value="arm" />
 	<preference name="xwalkMultipleApk" value="true" />	
@@ -47,6 +45,7 @@
 	<plugin name="pushwoosh-pgb-plugin" spec="6.5.3" source="npm" />		
 	<plugin name="pushwoosh-cordova-plugin" source="npm" />
 
+	<preference name="xwalkVersion" value="22+" />
 	<!-- Whitelist policy  -->
 	<access origin="*" />
 	<allow-intent href="*" />
