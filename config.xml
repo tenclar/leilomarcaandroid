@@ -11,8 +11,10 @@
 	<preference name="phonegap-version" value="cli-8.0.0" />
 
 	<gap:platform name="android" />
-	 <!-- <preference name="android-minSdkVersion" value="20" />	  -->
+	 
 	 <preference name="android-targetSdkVersion" value="26" /> 
+	 <preference name="android-compileSdkVersion" value="26" /> 
+	 
 	 
 	<!--  General preferences -->
 	<preference name="buildArchitecture" value="arm" />
