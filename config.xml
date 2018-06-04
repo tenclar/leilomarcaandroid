@@ -12,8 +12,8 @@
 
 	<gap:platform name="android" />
 	 <preference name="android-minSdkVersion" value="20" />
-	 <preference name="android-compileSdkVersion" value="26" /> 
-	 <preference name="android-targetSdkVersion" value="26" /> 
+	 <!-- <preference name="android-compileSdkVersion" value="26" />  -->
+	 <preference name="android-targetSdkVersion" value="27" /> 
 	 
 	<!--  General preferences -->
 	<preference name="buildArchitecture" value="arm" />
@@ -28,7 +28,7 @@
 	<!-- PhoneGap plugin declaration -->
   
 	<plugin name="cordova-android-support-gradle-release">
-     <variable name="ANDROID_SUPPORT_VERSION" value="26.0.0"/>
+     <variable name="ANDROID_SUPPORT_VERSION" value="27.0.0"/>
 	</plugin>
 	 
 	<plugin name="cordova-plugin-inappbrowser" source="npm" />
@@ -36,7 +36,7 @@
 	<plugin name="cordova-plugin-splashscreen" source="npm" />
 	<plugin name="cordova-plugin-device" source="npm" />
 	<plugin name="cordova-plugin-statusbar" source="npm" />
-	<!-- <plugin name="cordova-plugin-whitelist" source="npm" /> -->	
+	<plugin name="cordova-plugin-whitelist" source="npm" />	
 	<plugin name="cordova-plugin-crosswalk-webview" spec="2.4.0" source="npm" />		
 	<plugin name="cordova-build-architecture" spec="https://github.com/MBuchalik/cordova-build-architecture.git#v1.0.1" source="git" />	
 	<!-- <plugin name="cordova-plugin-customurlscheme" spec="4.2.0" >	 -->
