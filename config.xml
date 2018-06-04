@@ -8,7 +8,7 @@
 	<name>Leilo Marca</name>
 	<description>Leil&#227;o Rural da Regi&#227;o Norte</description>
 	<author href="http://www.leilomarca.com.br" email="leilomarcaweb@gmail.com">LeiloMarca</author>
-	<preference name="phonegap-version" value="cli-8.0.0" />
+	<preference name="phonegap-version" value="cli-6.4.0" />
 
 	<gap:platform name="android" />
 	 
@@ -45,7 +45,7 @@
 	<plugin name="pushwoosh-pgb-plugin" spec="6.5.3" source="npm" />		
 	<plugin name="pushwoosh-cordova-plugin" source="npm" />
 
-	<preference name="xwalkVersion" value="22+" />
+	
 	<!-- Whitelist policy  -->
 	<access origin="*" />
 	<allow-intent href="*" />
