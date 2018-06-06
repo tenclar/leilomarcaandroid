@@ -28,9 +28,9 @@
 
 	<!-- PhoneGap plugin declaration -->
   
-	<!-- <plugin name="cordova-android-support-gradle-release">
-     <variable name="ANDROID_SUPPORT_VERSION" value="23.+"/>
-	</plugin> -->
+	<plugin name="cordova-android-support-gradle-release" >
+     <variable name="ANDROID_SUPPORT_VERSION" value="23.+" />
+	</plugin>
 	 
 	<plugin name="cordova-plugin-inappbrowser" source="npm" />
 	<plugin name="cordova-plugin-network-information" source="npm" />	
