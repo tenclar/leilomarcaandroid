@@ -22,7 +22,20 @@ function search_component_query( $query_args, $component ) {
 														'field'    => 'slug',
 														'terms'    => $my_search_filters['search_principal']
 														)
-											);			
+											);
+											
+											
+
+          if($my_search_filters['search_principal'] ==='agenda') {
+			$query_args[ 'meta_key' ] = 'ai1ec_start';
+			$query_args[ 'orderby' ] = 'meta_value';		
+			$query_args['order'] = 'ASC';
+		  } else 
+				if($my_search_filters['search_principal'] ==='resultados') {
+					$query_args[ 'meta_key' ] = 'ai1ec_start';
+					$query_args[ 'orderby' ] = 'meta_value';		
+					$query_args['order'] = 'DESC';
+				}																										
 		}
 		else 
 			if ( !empty( $my_search_filters[ 'search_principal' ] ) && !empty( $my_search_filters[ 'search_secundario' ] ) ) {	
@@ -43,6 +56,17 @@ function search_component_query( $query_args, $component ) {
 											    
 											);		
 
+			if($my_search_filters['search_principal'] ==='agenda') {
+				$query_args[ 'meta_key' ] = 'ai1ec_start';
+				$query_args[ 'orderby' ] = 'meta_value';		
+				$query_args['order'] = 'ASC';
+		  	} else 
+				if($my_search_filters['search_principal'] ==='resultados') {
+					$query_args[ 'meta_key' ] = 'ai1ec_start';
+					$query_args[ 'orderby' ] = 'meta_value';		
+					$query_args['order'] = 'DESC';
+				}	
+
 		}	
 		//Note : default WP ordering for searchs is : 
 		// ORDER BY wp_posts.post_title LIKE '%search_string%' DESC, wp_posts.post_date DESC 
@@ -59,9 +83,7 @@ function search_component_query( $query_args, $component ) {
 
 		
 
-	    $query_args[ 'meta_key' ] = 'ai1ec_start';
-	    $query_args[ 'orderby' ] = 'meta_value';		
-		$query_args['order'] = 'ASC';
+	    
 	return $query_args;
 }
 
