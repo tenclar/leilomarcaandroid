@@ -11,7 +11,7 @@ define(
 	 ], function( $, App, TemplateTags, Storage, PhotoSwipe, PhotoSwipeUI_Default  ) {
 
 
-	 App.setParam( 'go-to-default-route-after-refresh', false ); // Don't automatically show default screen after a refresh	
+	 
 
 	var $refresh_button = $( '#refresh-button' );
 
@@ -21,7 +21,68 @@ define(
 	var img_dragging = false;
 	
 	
-         
+
+	//App.addCustomRoute( 'archive-agenda', 'archive-agenda' );
+
+   /*App.filter( 'template', function( def_template, current_screen) {
+	 if( TemplateTags.isTaxonomy('events_categories',['agenda','elite'], current_screen )) {
+		   def_template = 'archive-agenda'; //Don't need .html here.
+	  
+	 }
+	 return def_template;
+   });*/
+
+   /*App.filter( 'template-args', function( template_args, view_type, view_template ) { 
+   if( view_template == 'agenda' ) {
+	   //template_args.my_custom_arg = { my: custom_dynamic_value };
+	   if( TemplateTags.isCategory('agenda', current_screen) ){
+		   template = 'archive-my-category'; //Don't need .html here.
+	 }
+   }
+   return template_args;
+   });*/
+
+   // Don't automatically show default screen after a refresh	
+	// App.setParam( 'go-to-default-route-after-refresh', false ); 
+
+   App.addCustomRoute( 'home', 'home' );
+
+   App.filter( 'default-route', function( default_route ) {
+	   default_route = 'home';
+	   return default_route ;
+   });
+
+  
+   App.filter( 'make-history', function( history_action, history_stack, queried_screen, current_screen, previous_screen ) {
+   //If coming from "home" screen and going to a "single" screen, consider it as a "push" in app history:
+	   if( current_screen.item_id === 'home' && queried_screen.screen_type === 'list' ) {
+		   history_action = 'push';			
+	   }
+	   if( current_screen.item_id === 'home' && queried_screen.screen_type === 'single' ) {
+		   history_action = 'push';			
+	   }
+	   if( current_screen.item_id === 'home' && queried_screen.screen_type === 'page' ) {
+		   history_action = 'push';			
+	   }
+	   if( current_screen.item_id === 'list' && queried_screen.screen_type === 'single' ) {
+		   history_action = 'push';			
+	   }
+	   
+	   return history_action;
+   });
+
+   /*App.filter( 'transition-direction', function ( direction, current_screen, queried_screen ) {
+	   
+	   if ( current_screen.item_id === 'home' && queried_screen.screen_type === 'list' ) {
+		   direction = 'next-screen';
+	   } 
+	   //If coming back from a "single" screen to the "home" screen, consider it as a "previous screen" transition:
+	   else if ( current_screen.screen_type === 'list' && queried_screen.item_id === 'home' ) {
+		   direction = 'previous-screen';
+	   }
+	   return direction;
+   });*/
+
     /*     
      * Opens the given image (or list of images) with PhotoSwipe
      */
@@ -285,65 +346,6 @@ define(
 
 
 
-	
- 	App.addCustomRoute( 'home', 'home' );
-	 //App.addCustomRoute( 'archive-agenda', 'archive-agenda' );
-
-
-	/*App.filter( 'template', function( def_template, current_screen) {
-      if( TemplateTags.isTaxonomy('events_categories',['agenda','elite'], current_screen )) {
-            def_template = 'archive-agenda'; //Don't need .html here.
-       
-      }
-      return def_template;
-	});*/
-
-	/*App.filter( 'template-args', function( template_args, view_type, view_template ) { 
-	if( view_template == 'agenda' ) {
-		//template_args.my_custom_arg = { my: custom_dynamic_value };
-		if( TemplateTags.isCategory('agenda', current_screen) ){
-            template = 'archive-my-category'; //Don't need .html here.
-      }
-	}
-	return template_args;
-	});*/
-
-
-	App.filter( 'default-route', function( default_route ) {
-		default_route = 'home';
-		return default_route ;
-	});
-
-   
-	App.filter( 'make-history', function( history_action, history_stack, queried_screen, current_screen, previous_screen ) {
-	//If coming from "home" screen and going to a "single" screen, consider it as a "push" in app history:
-		if( current_screen.item_id === 'home' && queried_screen.screen_type === 'list' ) {
-			history_action = 'push';			
-		}
-		if( current_screen.item_id === 'home' && queried_screen.screen_type === 'single' ) {
-			history_action = 'push';			
-		}
-		if( current_screen.item_id === 'home' && queried_screen.screen_type === 'page' ) {
-			history_action = 'push';			
-		}
-		if( current_screen.item_id === 'list' && queried_screen.screen_type === 'single' ) {
-			history_action = 'push';			
-		}
-		
-		return history_action;
-	});
-
-	/*App.filter( 'transition-direction', function ( direction, current_screen, queried_screen ) {
-		
-		if ( current_screen.item_id === 'home' && queried_screen.screen_type === 'list' ) {
-			direction = 'next-screen';
-		} 
-		//If coming back from a "single" screen to the "home" screen, consider it as a "previous screen" transition:
-		else if ( current_screen.screen_type === 'list' && queried_screen.item_id === 'home' ) {
-			direction = 'previous-screen';
-		}
-		return direction;
-	});*/
 
 	/**
 	 * Open all links inside single content with the inAppBrowser
@@ -442,24 +444,24 @@ define(
 
 
 	document.addEventListener("backbutton", onBackKeyDown, false);
-	function onBackKeyDown() {
-    //Retrieve app's history
-    var history = App.getHistory();
+		function onBackKeyDown() {
+    		//Retrieve app's history
+    		var history = App.getHistory();
 
-    //Check that there's only one screen in history (the current one):
-    if ( history.length === 1 ) {
-        //Check that this element is the default (home) screen:
-        var history_screen = history[0];
-        if ( TemplateTags.getDefaultRouteLink().replace('#','') === history_screen.fragment ) {
-            //Only one element in history and this element is default screen: exit app on back button:
-            navigator.app.exitApp();
-            return;
-        }
-    }
+    		//Check that there's only one screen in history (the current one):
+    	if ( history.length === 1 ) {
+        		//Check that this element is the default (home) screen:
+        		var history_screen = history[0];
+        		if ( TemplateTags.getDefaultRouteLink().replace('#','') === history_screen.fragment ) {
+            		//Only one element in history and this element is default screen: exit app on back button:
+            		navigator.app.exitApp();
+            	return;
+        	}
+    	}
 
-    //History has at least one previous element: just go back to it:
-    navigator.app.backHistory();
-}
+    	//History has at least one previous element: just go back to it:
+    	navigator.app.backHistory();
+	}
 	
 
 	/**

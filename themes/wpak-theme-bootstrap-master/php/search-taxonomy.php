@@ -26,16 +26,7 @@ function search_component_query( $query_args, $component ) {
 											
 											
 
-          if($my_search_filters['search_principal'] ==='agenda') {
-			$query_args[ 'meta_key' ] = 'ai1ec_start';
-			$query_args[ 'orderby' ] = 'meta_value';		
-			$query_args['order'] = 'ASC';
-		  } else 
-				if($my_search_filters['search_principal'] ==='resultados') {
-					$query_args[ 'meta_key' ] = 'ai1ec_start';
-					$query_args[ 'orderby' ] = 'meta_value';		
-					$query_args['order'] = 'DESC';
-				}																										
+          																									
 		}
 		else 
 			if ( !empty( $my_search_filters[ 'search_principal' ] ) && !empty( $my_search_filters[ 'search_secundario' ] ) ) {	
@@ -56,16 +47,7 @@ function search_component_query( $query_args, $component ) {
 											    
 											);		
 
-			if($my_search_filters['search_principal'] ==='agenda') {
-				$query_args[ 'meta_key' ] = 'ai1ec_start';
-				$query_args[ 'orderby' ] = 'meta_value';		
-				$query_args['order'] = 'ASC';
-		  	} else 
-				if($my_search_filters['search_principal'] ==='resultados') {
-					$query_args[ 'meta_key' ] = 'ai1ec_start';
-					$query_args[ 'orderby' ] = 'meta_value';		
-					$query_args['order'] = 'DESC';
-				}	
+				
 
 		}	
 		//Note : default WP ordering for searchs is : 
@@ -74,15 +56,55 @@ function search_component_query( $query_args, $component ) {
 		//Note: As of WP-AppKit 0.6, if you want to keep WP Search ordering, you can use the 
 		//'use-standard-pagination' filter on app side (which will switch back to standard WP pagination),
 		//and comment the following line.
-		
-		
-		
-		
-	}
+		if ( !empty( $my_search_filters[ 'search_principal' ]) ){
+
+			if( $my_search_filters['search_principal'] === 'agenda') {
+				$query_args[ 'meta_key' ] = 'ai1ec_start';
+				$query_args[ 'orderby' ] = 'meta_value';		
+				$query_args['order'] = 'ASC';
+		  	} else 
+				if( $my_search_filters['search_principal'] === 'resultados') {
+					$query_args[ 'meta_key' ] = 'ai1ec_start';
+					$query_args[ 'orderby' ] = 'meta_value';		
+					$query_args['order'] = 'DESC';
+				}
 
 
+			
+		}
 		
+		
+		
+	} else {
 
+		if( $component->slug === 'agenda' ) {
+			$query_args[ 'tax_query' ] = array(											
+											array(
+												'taxonomy' => 'events_categories',
+												'field'    => 'slug',
+												'terms'    => 'agenda'
+											)
+										);
+
+			$query_args[ 'meta_key' ] = 'ai1ec_start';
+			$query_args[ 'orderby' ] = 'meta_value';		
+			$query_args['order'] = 'ASC';
+		} else 
+				if( $component->slug === 'resultados' ) {
+
+					$query_args[ 'tax_query' ] = array(											
+						array(
+							'taxonomy' => 'events_categories',
+							'field'    => 'slug',
+							'terms'    => 'resultados'
+						)
+					);
+					$query_args[ 'meta_key' ] = 'ai1ec_start';
+					$query_args[ 'orderby' ] = 'meta_value';		
+					$query_args['order'] = 'DESC';
+				}	
+			
+			}	
 	    
 	return $query_args;
 }
