@@ -47,15 +47,15 @@ define(
 
    App.addCustomRoute( 'home', 'home' );
 
-//    App.filter( 'default-route', function( default_route ) {
-// 	   default_route = 'home';
-// 	   return default_route ;
-//    });
+    App.filter( 'default-route', function( default_route ) {
+ 	   default_route = 'home';
+ 	   return default_route ;
+    });
 
-   App.filter( 'launch-route', function( launch_route ) {
-	launch_route = 'home';
-	return launch_route ;
-});
+//    App.filter( 'launch-route', function( launch_route ) {
+// 	launch_route = 'home';
+// 	return launch_route ;
+// });
 
   
    App.filter( 'make-history', function( history_action, history_stack, queried_screen, current_screen, previous_screen ) {
@@ -68,9 +68,9 @@ define(
 	   if( current_screen.item_id === 'list' && queried_screen.screen_type === 'single' ) {
 		   history_action = 'push';			
 	   }
-	   //    if( current_screen.item_id === 'home' && queried_screen.screen_type === 'list' ) {
+	//     if( current_screen.item_id === 'home' && queried_screen.screen_type === 'list' ) {
 	// 	   history_action = 'push';			
-	//    }
+	//   }
 	   
 	   return history_action;
    });
