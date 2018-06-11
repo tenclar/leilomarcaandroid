@@ -43,7 +43,7 @@ define(
    });*/
 
    // Don't automatically show default screen after a refresh	
-//	App.setParam( 'go-to-default-route-after-refresh', false ); 
+	App.setParam( 'go-to-default-route-after-refresh', false ); 
 
    App.addCustomRoute( 'home', 'home' );
 
@@ -75,7 +75,7 @@ define(
 	   return history_action;
    });
 
-   /*App.filter( 'transition-direction', function ( direction, current_screen, queried_screen ) {
+   App.filter( 'transition-direction', function ( direction, current_screen, queried_screen ) {
 	   
 	   if ( current_screen.item_id === 'home' && queried_screen.screen_type === 'list' ) {
 		   direction = 'next-screen';
@@ -85,7 +85,20 @@ define(
 		   direction = 'previous-screen';
 	   }
 	   return direction;
-   });*/
+   });
+
+   
+    // @desc Handle transitions for deeplinks:
+    App.filter( 'transition-direction', function( transition, current_screen, next_screen ){
+
+        //Display single in a slide up panel when opening from deeplinks:
+        if( next_screen.screen_type === 'single' && _.isEmpty( current_screen ) ) {
+                transition = 'next-screen';
+        }
+
+        return transition;
+    });
+
 
     /*     
      * Opens the given image (or list of images) with PhotoSwipe
