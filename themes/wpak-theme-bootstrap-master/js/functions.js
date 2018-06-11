@@ -43,7 +43,7 @@ define(
    });*/
 
    // Don't automatically show default screen after a refresh	
-	App.setParam( 'go-to-default-route-after-refresh', false ); 
+	//App.setParam( 'go-to-default-route-after-refresh', false ); 
 
    App.addCustomRoute( 'home', 'home' );
 
@@ -61,16 +61,16 @@ define(
    App.filter( 'make-history', function( history_action, history_stack, queried_screen, current_screen, previous_screen ) {
    //If coming from "home" screen and going to a "single" screen, consider it as a "push" in app history:
 	
-	   if( current_screen.item_id === 'home' && queried_screen.screen_type === 'single' ) {
-		   history_action = 'push';			
-	   }
+	//    if( current_screen.item_id === 'home' && queried_screen.screen_type === 'single' ) {
+	// 	   history_action = 'push';			
+	//    }
 	  
 	   if( current_screen.item_id === 'list' && queried_screen.screen_type === 'single' ) {
 		   history_action = 'push';			
 	   }
-	//     if( current_screen.item_id === 'home' && queried_screen.screen_type === 'list' ) {
-	// 	   history_action = 'push';			
-	//   }
+	    if( current_screen.item_id === 'home' && queried_screen.screen_type === 'list' ) {
+		   history_action = 'push';			
+	  }
 	   
 	   return history_action;
    });
