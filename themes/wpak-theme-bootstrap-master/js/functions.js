@@ -43,7 +43,7 @@ define(
    });*/
 
    // Don't automatically show default screen after a refresh	
-	App.setParam( 'go-to-default-route-after-refresh', false ); 
+//	App.setParam( 'go-to-default-route-after-refresh', false ); 
 
    App.addCustomRoute( 'home', 'home' );
 
@@ -556,9 +556,7 @@ define(
 	 */
 	App.on( 'screen:showed', function( current_screen, view ) {
 		//current_screen.screen_type can be 'list','single','page','comments'
-		if(current_screen.item_id == 'home' ){
-			App.refresh();
-		}
+		
 		if ( current_screen.screen_type == 'list' ) {
 			var pos = Storage.get( 'scroll-pos', current_screen.fragment );
 			if ( pos !== null ) {
