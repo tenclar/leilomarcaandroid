@@ -55,18 +55,17 @@ define(
   
    App.filter( 'make-history', function( history_action, history_stack, queried_screen, current_screen, previous_screen ) {
    //If coming from "home" screen and going to a "single" screen, consider it as a "push" in app history:
-	   if( current_screen.item_id === 'home' && queried_screen.screen_type === 'list' ) {
-		   history_action = 'push';			
-	   }
+	
 	   if( current_screen.item_id === 'home' && queried_screen.screen_type === 'single' ) {
 		   history_action = 'push';			
 	   }
-	   if( current_screen.item_id === 'home' && queried_screen.screen_type === 'page' ) {
-		   history_action = 'push';			
-	   }
+	  
 	   if( current_screen.item_id === 'list' && queried_screen.screen_type === 'single' ) {
 		   history_action = 'push';			
 	   }
+	   //    if( current_screen.item_id === 'home' && queried_screen.screen_type === 'list' ) {
+	// 	   history_action = 'push';			
+	//    }
 	   
 	   return history_action;
    });
@@ -150,9 +149,9 @@ define(
      * 4. Content image onerror handlers are set in prepare-content.php
      * 5. Thumbnail event handlers are done in the templates archive.html and single.html
      */
-    window.displayDefaultImage = function(o) {
-        $(o).attr('src',TemplateTags.getThemeAssetUrl('img/img-icon.svg'));
-    }
+    // window.displayDefaultImage = function(o) {
+    //     $(o).attr('src',TemplateTags.getThemeAssetUrl('img/img-icon.svg'));
+    // }
 
 	$('#container').on('click','#ag-corte',function(e){
     e.preventDefault();
