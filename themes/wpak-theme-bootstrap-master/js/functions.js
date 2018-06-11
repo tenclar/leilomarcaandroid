@@ -60,6 +60,10 @@ define(
   
    App.filter( 'make-history', function( history_action, history_stack, queried_screen, current_screen, previous_screen ) {
    //If coming from "home" screen and going to a "single" screen, consider it as a "push" in app history:
+
+   		if(  _.isEmpty( current_screen )  && queried_screen.screen_type === 'single' ) {
+			history_action = 'push';	
+		}
 	
 	    if( current_screen.item_id === 'home' && queried_screen.screen_type === 'single' ) {
 	 	   history_action = 'push';			
@@ -74,7 +78,7 @@ define(
 	   
 	   return history_action;
    });
-
+/* 
    App.filter( 'transition-direction', function ( direction, current_screen, queried_screen ) {
 	   
 	   if ( current_screen.item_id === 'home' && queried_screen.screen_type === 'list' ) {
@@ -86,19 +90,9 @@ define(
 	   }
 	   return direction;
    });
-
+ */
    
-    // @desc Handle transitions for deeplinks:
-    App.filter( 'transition-direction', function( transition, current_screen, next_screen ){
-
-        //Display single in a slide up panel when opening from deeplinks:
-        if( next_screen.screen_type === 'single' && _.isEmpty( current_screen ) ) {
-                transition = 'next-screen';
-        }
-
-        return transition;
-    });
-
+  
 
     /*     
      * Opens the given image (or list of images) with PhotoSwipe
