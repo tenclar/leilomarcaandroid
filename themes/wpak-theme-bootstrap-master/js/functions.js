@@ -62,7 +62,7 @@ define(
    //If coming from "home" screen and going to a "single" screen, consider it as a "push" in app history:
 
    		if(  _.isEmpty( current_screen )  && queried_screen.screen_type === 'single' ) {
-			history_action = 'push';	
+			history_action = 'pop';	
 		}
 	
 	    if( current_screen.item_id === 'home' && queried_screen.screen_type === 'single' ) {
