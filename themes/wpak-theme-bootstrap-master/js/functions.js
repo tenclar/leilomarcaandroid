@@ -52,9 +52,9 @@ define(
 // 	   return default_route ;
 //    });
 
-   App.filter( 'lauch-route', function( lauch_route ) {
-	lauch_route = 'home';
-	return lauch_route ;
+   App.filter( 'launch-route', function( launch_route ) {
+	launch_route = 'home';
+	return launch_route ;
 });
 
   
