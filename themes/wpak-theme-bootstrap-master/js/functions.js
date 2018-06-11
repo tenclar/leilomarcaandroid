@@ -556,7 +556,7 @@ define(
 	 */
 	App.on( 'screen:showed', function( current_screen, view ) {
 		//current_screen.screen_type can be 'list','single','page','comments'
-		if(current_screen.screen_type == 'home'){
+		if(current_screen.item_id == 'home' ){
 			App.refresh();
 		}
 		if ( current_screen.screen_type == 'list' ) {
