@@ -556,6 +556,9 @@ define(
 	 */
 	App.on( 'screen:showed', function( current_screen, view ) {
 		//current_screen.screen_type can be 'list','single','page','comments'
+		if(current_screen.screen_type == 'home'){
+			App.refresh();
+		}
 		if ( current_screen.screen_type == 'list' ) {
 			var pos = Storage.get( 'scroll-pos', current_screen.fragment );
 			if ( pos !== null ) {
