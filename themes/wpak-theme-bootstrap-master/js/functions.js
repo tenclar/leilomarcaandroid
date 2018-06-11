@@ -43,7 +43,7 @@ define(
    });*/
 
    // Don't automatically show default screen after a refresh	
-	// App.setParam( 'go-to-default-route-after-refresh', false ); 
+	App.setParam( 'go-to-default-route-after-refresh', false ); 
 
    App.addCustomRoute( 'home', 'home' );
 
