@@ -47,10 +47,15 @@ define(
 
    App.addCustomRoute( 'home', 'home' );
 
-   App.filter( 'default-route', function( default_route ) {
-	   default_route = 'home';
-	   return default_route ;
-   });
+//    App.filter( 'default-route', function( default_route ) {
+// 	   default_route = 'home';
+// 	   return default_route ;
+//    });
+
+   App.filter( 'lauch-route', function( lauch_route ) {
+	lauch_route = 'home';
+	return lauch_route ;
+});
 
   
    App.filter( 'make-history', function( history_action, history_stack, queried_screen, current_screen, previous_screen ) {
