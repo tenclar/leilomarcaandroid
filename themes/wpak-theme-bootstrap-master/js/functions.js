@@ -569,7 +569,7 @@ define(
 	 */
 	App.on( 'screen:showed', function( current_screen, queried_screen, view ) {
 		//current_screen.screen_type can be 'list','single','page','comments'
-		if(  _.isEmpty( current_screen )  && queried_screen.screen_type === 'single' ) {
+		if(  _.isEmpty( current_screen )  ) {
 			App.refresh();
 		} 
 		if ( current_screen.screen_type == 'list' ) {
