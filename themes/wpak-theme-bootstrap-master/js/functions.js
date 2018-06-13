@@ -567,9 +567,11 @@ define(
 	 * Do something when a new screen is showed.
 	 * Here, if we arrive on a post list, we resore the scroll position
 	 */
-	App.on( 'screen:showed', function( current_screen, view ) {
+	App.on( 'screen:showed', function( current_screen, queried_screen, view ) {
 		//current_screen.screen_type can be 'list','single','page','comments'
-		
+		if(  _.isEmpty( current_screen )  && queried_screen.screen_type === 'single' ) {
+			App.refresh();
+		} 
 		if ( current_screen.screen_type == 'list' ) {
 			var pos = Storage.get( 'scroll-pos', current_screen.fragment );
 			if ( pos !== null ) {
