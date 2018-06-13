@@ -458,7 +458,7 @@ define(
 	} );
 
 
-	/* 
+	
 	document.addEventListener("backbutton", onBackKeyDown, false);
 		function onBackKeyDown() {
     		//Retrieve app's history
@@ -479,7 +479,7 @@ define(
     	//History has at least one previous element: just go back to it:
     	navigator.app.backHistory();
 	} 
-	*/
+	
 	
 
 	/**
@@ -572,7 +572,7 @@ define(
 	 * Do something when a new screen is showed.
 	 * Here, if we arrive on a post list, we resore the scroll position
 	 */
-	App.on( 'screen:showed', function( current_screen, queried_screen, view ) {
+	App.on( 'screen:showed', function( current_screen, view ) {
 		//current_screen.screen_type can be 'list','single','page','comments'
 		
 		if ( current_screen.screen_type == 'list' ) {
