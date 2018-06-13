@@ -52,10 +52,10 @@ define(
  	   return default_route ;
     }); */
 
-    	App.filter( 'launch-route', function( launch_route ) {
-		launch_route = 'home';
-		return launch_route ;
-	});
+    // 	App.filter( 'launch-route', function( launch_route ) {
+	// 	launch_route = 'home';
+	// 	return launch_route ;
+	// });
  
   
    App.filter( 'make-history', function( history_action, history_stack, queried_screen, current_screen, previous_screen ) {
