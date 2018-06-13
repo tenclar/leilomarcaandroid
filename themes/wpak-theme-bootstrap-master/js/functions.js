@@ -439,6 +439,7 @@ define(
 			$back_button.hide();
 			$refresh_button.show();
 		}
+
 		$( 'div.wpcf7 > form' ).each( function() {
 			var $form = $( this );
 			wpcf7.initForm( $form );
@@ -550,6 +551,10 @@ define(
 		);
 	} );
 
+	// App.on('app-ready', function(count_open, last_open_date, last_sync, version, version_diff){
+
+	// });
+
 	/**
 	 * Do something before leaving a screen.
 	 * Here, if we're leaving a post list, we memorize the current scroll position, to
@@ -569,9 +574,7 @@ define(
 	 */
 	App.on( 'screen:showed', function( current_screen, queried_screen, view ) {
 		//current_screen.screen_type can be 'list','single','page','comments'
-		if(  _.isEmpty( current_screen )  ) {
-			App.refresh();
-		} 
+		
 		if ( current_screen.screen_type == 'list' ) {
 			var pos = Storage.get( 'scroll-pos', current_screen.fragment );
 			if ( pos !== null ) {
