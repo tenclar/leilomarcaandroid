@@ -43,7 +43,7 @@ define(
    });*/
 
    // Don't automatically show default screen after a refresh	
-	//App.setParam( 'go-to-default-route-after-refresh', false ); 
+	App.setParam( 'go-to-default-route-after-refresh', false ); 
 
    App.addCustomRoute( 'home', 'home' );
 
@@ -61,9 +61,10 @@ define(
    App.filter( 'make-history', function( history_action, history_stack, queried_screen, current_screen, previous_screen ) {
    //If coming from "home" screen and going to a "single" screen, consider it as a "push" in app history:
 
-   		if(  _.isEmpty( current_screen )  && queried_screen.screen_type === 'single' ) {
+   	/* 	if(  _.isEmpty( current_screen )  && queried_screen.screen_type === 'single' ) {
 			history_action = 'pop';	
-		}
+		} 
+		*/
 	
 	    if( current_screen.item_id === 'home' && queried_screen.screen_type === 'single' ) {
 	 	   history_action = 'push';			
@@ -72,9 +73,11 @@ define(
 	   if( current_screen.item_id === 'list' && queried_screen.screen_type === 'single' ) {
 		   history_action = 'push';			
 	   }
-	   /*  if( current_screen.item_id === 'home' && queried_screen.screen_type === 'list' ) {
+	   /*
+	     if( current_screen.item_id === 'home' && queried_screen.screen_type === 'list' ) {
 		   history_action = 'push';			
-	  } */
+	 	 } 
+	  */
 	   
 	   return history_action;
    });
@@ -454,7 +457,8 @@ define(
 	} );
 
 
-	/* document.addEventListener("backbutton", onBackKeyDown, false);
+	/* 
+	document.addEventListener("backbutton", onBackKeyDown, false);
 		function onBackKeyDown() {
     		//Retrieve app's history
     		var history = App.getHistory();
@@ -473,7 +477,8 @@ define(
 
     	//History has at least one previous element: just go back to it:
     	navigator.app.backHistory();
-	} */
+	} 
+	*/
 	
 
 	/**
