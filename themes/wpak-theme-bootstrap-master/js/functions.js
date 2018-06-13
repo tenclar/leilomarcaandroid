@@ -47,10 +47,10 @@ define(
 
    App.addCustomRoute( 'home', 'home' );
 
-    /* App.filter( 'default-route', function( default_route ) {
+    App.filter( 'default-route', function( default_route ) {
  	   default_route = 'home';
  	   return default_route ;
-    }); */
+    });
 
     // 	App.filter( 'launch-route', function( launch_route ) {
 	// 	launch_route = 'home';
