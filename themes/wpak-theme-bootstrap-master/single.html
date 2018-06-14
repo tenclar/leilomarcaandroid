@@ -4,7 +4,7 @@
 	<% if( post.nb_comments > 0 ){ %>
                 - <a class="comments" data-post-id="<%= post.id %>" href="#"><% print(post.nb_comments) %>&nbsp;comentários<% post.nb_comments > 1 ? print('s') : '' %></a>
 	<% } %>
-	<div id="single-content">
+	<div id="single-content" class="single-content">
 		<% if(  post.thumbnail && post.thumbnail.src && post.thumbnail.src.length ){ %>
 			<img src="<%= post.thumbnail.src %>" data-full-img="<%= post.thumbnail.src %>" data-width="1742" data-height="2308" onerror="displayDefaultImage(this);"  />
 		<% } %>
