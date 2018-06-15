@@ -502,12 +502,17 @@ define(
 	} );
 
 	/**
-	 * Open all links inside single content with the inAppBrowser
+	 * Open all links inside single / page content with the inAppBrowser
 	 */
-	$( "#container" ).on( "click", ".single-content a, .page-content a", function( e ) {
+	$( "#container" ).on( "click", " .page-content a", function( e ) {
 		e.preventDefault();
 		openWithInAppBrowser( e.target.href );
 	} );
+
+	// Redirect all content hyperlinks clicks
+	// @todo: put it into prepareContent()
+	$("#app-layout").on("click", ".single-content a", openInBrowser);
+    
 	
 	$( "#container" ).on( "click", ".comments", function( e ) {
 		e.preventDefault();
@@ -628,5 +633,40 @@ define(
 	function openWithInAppBrowser( url ) {
 		window.open( url, "_blank", "location=no" );
 	}
+
+	// @desc Hyperlinks click handler
+    // Relies on the InAppBrowser Cordova Core Plugin / https://build.phonegap.com/plugins/233
+    // Target _blank calls an in app browser (iOS behavior)
+    // Target _system calls the default browser (Android behavior)
+    // Link begins with #, route to an internal screen
+    // @param {object} e
+    function openInBrowser(e) {
+
+        e.preventDefault();
+        
+        // Get the href attribute value
+        // Using attr() rather than directly .href to get the not modified value of the href attribute
+        var href = $(e.target).attr('href');
+        
+        if ( href.charAt(0) !== '#' ) { // href doesn't begin with #
+            
+            try { // InAppBrowser Cordova plugin is available
+                cordova.InAppBrowser.open( href, '_system', 'location=yes' ); // Launch the default Android browser
+            } catch(err) { // InAppBrowser Cordova plugin is NOT available
+                window.open( href, '_blank', 'location=yes' ); // Open a new browser window
+            }
+            
+        } else { // href begins with # (ie. it's an internal link)
+            
+			App.navigate( href );
+			
+        }
+
+    }
+
+
+
+
+
 
 } );
