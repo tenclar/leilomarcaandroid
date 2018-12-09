@@ -162,14 +162,3 @@ ol.breadcrumb{
     padding-left: 0;
     list-style: none;
 }
-
-.app-version{
-    position:absolute;
-    bottom:0;
-    font-size:14px;
-    height:48px;
-    line-height:48px;
-    padding:0px
-    16px 0px 16px;
-    color:rgba(255,255,255,.87)
-}

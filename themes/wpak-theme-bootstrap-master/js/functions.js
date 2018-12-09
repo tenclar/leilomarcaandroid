@@ -2,14 +2,13 @@ define(
 	[ 
 	'jquery',
 	 'core/theme-app', 
-	 'core/theme-tpl-tags', 
-	 'core/modules/storage',
-	 'root/config', 	 
+	 'core/theme-tpl-tags', 	 
+	 'core/modules/storage',	 
 	 'theme/photoswipe/photoswipe.min',
 	 'theme/photoswipe/photoswipe-ui-default.min',
 	 'theme/js/cf7',
 	 'theme/js/bootstrap.min' 
-	 ], function( $, App, TemplateTags, Storage, Config, PhotoSwipe, PhotoSwipeUI_Default  ) {
+	 ], function( $, App, TemplateTags,  Storage, PhotoSwipe, PhotoSwipeUI_Default  ) {
 
 
 	 
@@ -47,12 +46,14 @@ define(
 	App.setParam( 'go-to-default-route-after-refresh', false ); 
 
    App.addCustomRoute( 'home', 'home' );
+   App.filter( 'default-route', function( default_route ) {
+		default_route = 'home';
+		return default_route ;
+	});
+
    App.addCustomRoute( 'politica', 'politica' );
 
-    App.filter( 'default-route', function( default_route ) {
- 	   default_route = 'home';
- 	   return default_route ;
-    });
+   
 
     // 	App.filter( 'launch-route', function( launch_route ) {
 	// 	launch_route = 'home';
@@ -355,9 +356,7 @@ define(
 	    if ( view_type === 'archive' ) {
 	        template_args.current_search = current_search;
 		}
-		if ( view_type === 'menu' ) {
-		template_args.Config = Config;
-		}
+	
 		
 	    return template_args;
 	} );
