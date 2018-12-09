@@ -1,3 +1,4 @@
+
 <ul class="nav navbar-nav">
 		<li class="has-ripple-feedback"><a href="#home">Início</a></li>
 	<% if(menu_items.length){ %>
@@ -5,4 +6,9 @@
 			<li><a href="<%= menu_item.link %>"><%= menu_item.label %> <span class="glyphicon glyphicon-chevron-right pull-right visible-xs"></span></a></li>
 		<% }) %>
 	<% } %>
+	<% if ( Config.version.length ) { %>		
+		<li class="app-version" >Version <%= Config.version %></li>
+	<% } %>
+	
 </ul>
+
