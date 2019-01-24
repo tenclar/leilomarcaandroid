@@ -370,7 +370,8 @@ define(
 	 */
 	$( '#app-layout' ).on( 'click', '#linkaovivo a', function( e ) {
 		e.preventDefault();	
-		 openWithInAppBrowser( 'https://www.youtube.com/channel/UCd68n27RpAW2MXXvAAS6Mvw/live' );
+		openWithInAppBrowser( 'http://www.leilomarca.com.br/aovivo/' );
+		 
 	} );
 
 	/**

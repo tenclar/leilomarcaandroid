@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <widget xmlns       = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "br.com.leilomarca.agenda"
-        versionCode = "1.1.5"		
-        version     = "1.1.5" >
+        id          = "lmr1212"
+        versionCode = "1.1.6"		
+        version     = "1.1.6" >
 
 	<name>Leilo Marca</name>
 	<description>Leil&#227;o Rural da Regi&#227;o Norte</description>
@@ -22,13 +22,15 @@
 	<preference name="disallowOverscroll" value="true" />
 	<preference name="webviewbounce" value="false" />
 	
+		<!-- Custom preferences -->
 
-	<!-- PhoneGap plugin declaration -->
-  
 	<plugin name="cordova-android-support-gradle-release" >
      <variable name="ANDROID_SUPPORT_VERSION" value="23.+" />
 	</plugin>
-	 
+	
+	
+		<!-- PhoneGap plugin declaration -->
+   
 	<plugin name="cordova-plugin-inappbrowser" source="npm" />
 	<plugin name="cordova-plugin-network-information" source="npm" />	
 	<plugin name="cordova-plugin-splashscreen" source="npm" />
